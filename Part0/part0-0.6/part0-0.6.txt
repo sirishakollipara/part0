@@ -1,0 +1,32 @@
+browser->server: HTTP GET https://studies.cs.helsinki.fi/exampleapp/spa
+server-->browser: HTML-code
+browser->server: HTTP GET https://studies.cs.helsinki.fi/exampleapp/main.css
+server-->browser: main.css
+browser->server: HTTP GET https://studies.cs.helsinki.fi/exampleapp/spa.js
+server-->browser: spa.js
+note over browser:
+browser starts executing js-code
+that requests JSON data from server 
+end note
+browser->server: HTTP GET https://studies.cs.helsinki.fi/exampleapp/data.json
+server-->browser: [{ content: "part0-0.6", date: "2021-05-25"]
+note over browser:
+
+ User gives(inputs) the data and then press
+ the Save button in the spa page.
+ end note 
+ browser->server: HTTP POST https://studies.cs.helsinki.fi/exampleapp/new_note_spa
+ server-->browser: HTTP status code 201 created
+ 
+note right of browser:
+The browser stays on the same page, 
+and it did not sends any further HTTP requests. 
+The server does not ask for a redirect
+end note
+
+note over   browser:
+The Content-Type header of the request tells the server that 
+the included data is represented in the JSON format,
+without this header the server would not know how to parse 
+the data
+end note  
