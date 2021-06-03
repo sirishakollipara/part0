@@ -40,8 +40,8 @@ const App = () => {
   const [ newName, setNewName ] = useState('')
   const [ newNumber, setNewNumber ] = useState('')
   const [ filter, setFilter ] = useState('')
-  const [ successMessage, setSuccessMessage ] = useState('Nothing happened...')
-  const [ errorMessage, setErrorMessage ] = useState('Nothing happened...')
+  const [ successMessage, setSuccessMessage ] = useState(' ')
+  const [ errorMessage, setErrorMessage ] = useState(' ')
 
   useEffect(() => {
     personService
@@ -140,14 +140,14 @@ const App = () => {
 
   return (
     <div>
-      <h2>Phonebook</h2>
+      <h2>Phonebook of sirisha</h2>
       <SuccessNotification message={successMessage}/>
       <ErrorNotification message={errorMessage}/>
       <Filter handleFilter={handleFilter}/>
-      <h2>Add a new</h2>
+      <h2>Add a new contact</h2>
       <PersonForm addInfo={addInfo} newName={newName} handleNameChange={handleNameChange} 
       newNumber={newNumber} handleNumberChange={handleNumberChange}/>
-      <h2>Numbers</h2>
+      <h2>Numbers/contacts</h2>
       <Persons personsFilter={personsFilter} setPersons={setPersons}/> 
     </div>
   )
