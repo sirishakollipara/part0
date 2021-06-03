@@ -23,7 +23,7 @@ const DisplayCountry = ({country}) => {
       <h2>{country.name}</h2>
       <div>Capital {country.capital}</div>
       <div>Population {country.population}</div>
-      <h3>Spoken languages</h3>
+      <h3>languages</h3>
       <ul>
         {country.languages.map((language,i) => <li key={i}>{language.name}</li>)}
       </ul>
